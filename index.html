@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+// to execute code when the page is entierly loaded
+$(document).ready(function(){
+    // // click event on the button
+    $('#myButton').click(function(){
+
+    originalText=$('#result').val().toString();
+     
+    newText = originalText.replace(/<div class="paragraph-content-clp">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-title-clp">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-image-clp">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-type-clp">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-paragraph-id-clp">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-type">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-background-color-bp_block">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-width">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-background-color">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-paragraph-id">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-paragraph-class-clp">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-paragraph-class-bp_view">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-paragraph-class">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-background-color-clp">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-type-bp_simple">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-background-color-bp_view">(.*?)<\/div>/gs, '').replace(/<div class="paragraph-title">/gm, '<h2 class="paragraph-title">');
+        
+    document.getElementById("output").innerHTML= newText;
+    });
+});
+</script>
+
+
+</head>
+<body>
+    <textarea id="result" type="text">My text in which I want to remove specific words.</textarea>
+    <button id="myButton">Fix duplication and add h2 tags</button>
+    <textarea id="output" type="text"></textarea>
+</body>
+</html>
